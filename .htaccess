@@ -1,0 +1,30 @@
+# Настройки Apache для хостинга (Beget и любой другой shared-хостинг).
+
+AddDefaultCharset UTF-8
+DirectoryIndex index.html
+
+# Сжатие текстовых файлов: HTML, CSS и JS ужимаются в 3-4 раза.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Картинки не меняются, поэтому кешируем их надолго, а разметку - нет,
+# иначе правки на сайте не увидят те, кто уже заходил.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg    "access plus 1 year"
+  ExpiresByType image/png     "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css      "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType text/html     "access plus 0 seconds"
+</IfModule>
+
+# Служебные файлы проекта не должны быть доступны снаружи.
+<FilesMatch "^(README\.md|requirements\.txt|\.gitignore)$">
+  Require all denied
+</FilesMatch>
+
+RedirectMatch 404 ^/(tools|audit|\.git)/

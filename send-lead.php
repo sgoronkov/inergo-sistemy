@@ -13,7 +13,7 @@ const LEAD_SUBJECT = 'Заявка с сайта «Технология тепл
 
 // Домен для адреса отправителя: почтовые серверы отвергают письма
 // с чужого адреса в From, поэтому подставляем свой хост.
-const LEAD_FROM = 'no-reply@example.ru';
+const LEAD_FROM = 'no-reply@inergo-sistemy.ru';
 
 const RATE_LIMIT_SECONDS = 20;
 
