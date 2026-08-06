@@ -7,6 +7,10 @@
   var PHONE = "+79533663012";
   var PHONE_HUMAN = "+7 (953) 366-30-12";
   var WHATSAPP = "https://wa.me/79533663012";
+  // В MAX нет ссылок по номеру телефона, как в WhatsApp: нужна личная ссылка вида
+  // https://max.ru/u/... из приложения (Профиль → QR-код → Поделиться). Подставьте её
+  // здесь — все кнопки MAX на сайте берут адрес отсюда.
+  var MAX_CHAT = "https://max.ru/";
   var EMAIL = "sgoronkov@yandex.ru";
   var LEAD_ENDPOINT = "send-lead.php";
 
@@ -472,6 +476,9 @@
     whatsapp:
       '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
       '<path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.8h-.02a9.77 9.77 0 0 1-4.98-1.36l-.36-.21-3.7.97.99-3.61-.23-.37a9.76 9.76 0 0 1-1.5-5.22c0-5.4 4.4-9.79 9.8-9.79 2.62 0 5.08 1.02 6.93 2.87a9.73 9.73 0 0 1 2.87 6.93c0 5.4-4.4 9.79-9.8 9.79zM20.52 3.45A11.7 11.7 0 0 0 12.05 0C5.58 0 .32 5.26.32 11.73c0 2.07.54 4.09 1.57 5.87L.22 24l6.55-1.72a11.7 11.7 0 0 0 5.28 1.34h.01c6.47 0 11.73-5.26 11.73-11.73 0-3.13-1.22-6.08-3.44-8.3z"/></svg>',
+    max:
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' +
+      '<rect x="3" y="3" width="18" height="18" rx="5.5"/><path d="M8 16.2V8.4l4 4.2 4-4.2v7.8"/></svg>',
     mail:
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">' +
       '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>',
@@ -494,6 +501,7 @@
       '<div class="mobile-dock-flyout" id="dockContactFlyout" role="menu">',
       '<a href="tel:' + PHONE + '" role="menuitem" aria-label="Позвонить">' + ICON.phone + "</a>",
       '<a href="' + WHATSAPP + '" target="_blank" rel="noopener" role="menuitem" aria-label="WhatsApp">' + ICON.whatsapp + "</a>",
+      '<a href="' + MAX_CHAT + '" target="_blank" rel="noopener" role="menuitem" aria-label="Написать в MAX">' + ICON.max + "</a>",
       '<a href="mailto:' + EMAIL + '" role="menuitem" aria-label="Написать на почту">' + ICON.mail + "</a>",
       "</div></div>",
       '<div class="mobile-dock-half">',
@@ -613,6 +621,10 @@
   function init() {
     var year = document.getElementById("year");
     if (year) year.textContent = String(new Date().getFullYear());
+
+    Array.prototype.forEach.call(document.querySelectorAll(".js-max-link"), function (link) {
+      link.href = MAX_CHAT;
+    });
 
     renderGallery();
     initMenu();

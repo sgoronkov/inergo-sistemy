@@ -18,7 +18,7 @@
 
 <link rel="icon" href="assets/img/logo-radiator.png" type="image/png">
 <link rel="preload" as="image" href="assets/img/hero-house-cutaway.png">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/styles.css?v=20260806">
 </head>
 <body>
 
@@ -432,7 +432,7 @@
 
         <label class="consent">
           <input type="checkbox" name="consent" required>
-          <span>Согласен на обработку персональных данных</span>
+          <span>Согласен на <a href="privacy/" target="_blank" rel="noopener">обработку персональных данных</a></span>
         </label>
         <span class="field__error" data-error-for="consent"></span>
 
@@ -462,6 +462,11 @@
           <p>Пришлите планировку или фото котельной — вернёмся с расчётом</p>
         </div>
         <div class="contacts__item">
+          <h3>MAX</h3>
+          <a class="js-max-link" href="https://max.ru/" target="_blank" rel="noopener">Написать в MAX</a>
+          <p>Тот же инженер, если вам удобнее российский мессенджер</p>
+        </div>
+        <div class="contacts__item">
           <h3>Почта</h3>
           <a href="mailto:avdeevrodion@yandex.ru">avdeevrodion@yandex.ru</a>
           <p>Для проектов, смет и документов</p>
@@ -487,6 +492,7 @@
       <span class="logo__text">Технология<span>тепла</span></span>
     </a>
     <p class="footer__copy">© <span id="year">2026</span> «Технология тепла». Проектирование и монтаж инженерных систем.</p>
+    <a class="footer__legal" href="privacy/">Политика конфиденциальности</a>
     <a class="footer__phone" href="tel:+79533663012">+7 (953) 366-30-12</a>
   </div>
 </footer>
@@ -521,7 +527,7 @@
 
         <div class="checkbox-row" id="leadPrivacyRow">
           <input id="leadPrivacy" name="privacy" type="checkbox" required>
-          <label for="leadPrivacy">Согласен на обработку персональных данных</label>
+          <label for="leadPrivacy">Согласен на <a href="privacy/" target="_blank" rel="noopener">обработку персональных данных</a></label>
         </div>
         <div class="field-error" id="leadPrivacyError">Нужно согласие на обработку данных</div>
         <div class="field-error" id="leadSendError"></div>
@@ -569,6 +575,6 @@
 }
 </script>
 
-<script src="assets/js/script.js" defer></script>
+<script src="assets/js/script.js?v=20260806" defer></script>
 </body>
 </html>

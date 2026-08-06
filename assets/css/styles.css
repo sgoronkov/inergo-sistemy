@@ -849,9 +849,105 @@ em {
   font-size: 14px;
   color: var(--ink-3);
 }
+.footer__legal {
+  font-size: 14px;
+  color: var(--ink-3);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.footer__legal:hover { color: var(--accent); border-bottom-color: currentColor; }
 .footer__phone {
   font-weight: 700;
   text-decoration: none;
+}
+
+/* ---------------------------------------------------------------- Текстовые страницы */
+
+.legal {
+  padding: 40px 0 64px;
+}
+.legal__inner {
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.legal__back {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--ink-3);
+}
+.legal__back:hover { color: var(--accent); }
+.legal h1 {
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+.legal__updated {
+  font-size: 14px;
+  color: var(--ink-3);
+  margin-bottom: 30px;
+}
+.legal h2 {
+  font-size: 22px;
+  line-height: 1.25;
+  margin: 34px 0 12px;
+}
+.legal p,
+.legal li {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+.legal p { margin-bottom: 12px; }
+.legal ul {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+}
+.legal ul li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 8px;
+}
+/* Тире вместо маркера: в исходном тексте политики перечисления идут именно так. */
+.legal ul li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+.legal__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 12px;
+  font-size: 15px;
+}
+.legal__table th,
+.legal__table td {
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+  color: var(--ink-2);
+}
+.legal__table th {
+  width: 34%;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--paper-2, rgba(0, 0, 0, .02));
+}
+.legal a { color: var(--accent); }
+
+@media (max-width: 520px) {
+  .legal__table,
+  .legal__table tbody,
+  .legal__table tr,
+  .legal__table th,
+  .legal__table td { display: block; width: 100%; }
+  .legal__table tr { margin-bottom: 12px; }
+  .legal__table th { border-bottom: none; }
 }
 
 /* ---------------------------------------------------------------- Плавающая кнопка */

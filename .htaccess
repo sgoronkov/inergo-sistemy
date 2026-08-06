@@ -12,7 +12,16 @@ DirectoryIndex index.html
   RewriteRule ^ https://inergo-sistemy.ru%{REQUEST_URI} [R=301,L]
   RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
   RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+  # Отдаём страницу политики прямо по /privacy, без обычного редиректа
+  # на /privacy/ — иначе canonical и ссылки в документе вели бы на редирект.
+  RewriteRule ^privacy/?$ privacy/index.html [L]
 </IfModule>
+
+# Без этого mod_dir перехватывает /privacy раньше правил выше и уводит
+# на /privacy/, причём по http. Списка файлов при этом не будет: -Indexes.
+DirectorySlash Off
+Options -Indexes
 
 # Сжатие текстовых файлов: HTML, CSS и JS ужимаются в 3-4 раза.
 <IfModule mod_deflate.c>
