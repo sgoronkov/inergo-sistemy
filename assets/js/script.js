@@ -7,10 +7,9 @@
   var PHONE = "+79533663012";
   var PHONE_HUMAN = "+7 (953) 366-30-12";
   var WHATSAPP = "https://wa.me/79533663012";
-  // В MAX нет ссылок по номеру телефона, как в WhatsApp: нужна личная ссылка вида
-  // https://max.ru/u/... из приложения (Профиль → QR-код → Поделиться). Подставьте её
-  // здесь — все кнопки MAX на сайте берут адрес отсюда.
-  var MAX_CHAT = "https://max.ru/";
+  // В MAX нет ссылок по номеру телефона, как в WhatsApp: работает только личная ссылка
+  // из приложения (Профиль → QR-код → Поделиться). Все кнопки MAX берут адрес отсюда.
+  var MAX_CHAT = "https://max.ru/u/f9LHodD0cOKzZ5h3J3AZd0SXtkny6hk9RIlg0SipCf935HuWcVQ8oiLQGIw";
   var EMAIL = "sgoronkov@yandex.ru";
   var LEAD_ENDPOINT = "send-lead.php";
 
