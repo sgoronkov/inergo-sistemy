@@ -48,3 +48,7 @@ Options -Indexes
 </FilesMatch>
 
 RedirectMatch 404 ^/(tools|audit|\.git)/
+
+# Архив заявок и ключ выгрузки. Обычно они лежат выше public_html и снаружи
+# недоступны, но если хостинг не дал туда писать, папка окажется здесь.
+RedirectMatch 404 ^/leads-data(/|$)
